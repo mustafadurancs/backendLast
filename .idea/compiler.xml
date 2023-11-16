@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="srs-sport" />
+        <module name="backend" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="employee-jdbc" target="11" />
+      <module name="SRSSport" target="11" />
+      <module name="SRSsport" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Backend" options="-parameters" />
+      <module name="SRSSport" options="-parameters" />
+      <module name="SRSsport" options="-parameters" />
+      <module name="back" options="-parameters" />
+      <module name="backend" options="-parameters" />
+      <module name="employee-jdbc" options="-parameters" />
+      <module name="srs" options="-parameters" />
+      <module name="srs-sport" options="-parameters" />
+    </option>
+  </component>
+</project>
