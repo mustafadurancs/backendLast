@@ -1,6 +1,5 @@
 package com.srs.backend.service;
 
-import com.srs.backend.model.School;
 import com.srs.backend.model.Users;
 import com.srs.backend.repositroy.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,18 @@ public class UserService {
     public Users addUser(Users users) {
         return userRepository.save(users);
     }
+
+
+    public boolean validateUser(String username) {
+        Users user = userRepository.findFirstByUsername(username);
+        if (user != null) {
+            user.validated = Boolean.TRUE;
+            userRepository.save(user);
+            return true;
+        }
+        return false;
+    }
+
 
     public Users updateUser(Users users) {
         Optional<Users> localUser = userRepository.findById(users.getId());
@@ -66,7 +77,7 @@ public class UserService {
         return userRepository.save(localUser.get());
     }
 
-    public Optional<Users>  findlUserById(Long id) {
+    public Optional<Users> findlUserById(Long id) {
         return userRepository.findById(id);
     }
 
@@ -77,7 +88,7 @@ public class UserService {
     public Users getUserByUserNameAndPassword(String username, String password) {
         Users user = null;
         if (!password.isEmpty())
-            user = userRepository.findFirstByUsernameAndPassword(username, password);
+            user = userRepository.findFirstByUsernameAndPasswordAndValidatedIsTrue(username, password);
         else {
             user = userRepository.findFirstByUsername(username);
         }

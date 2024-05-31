@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface UserRepository extends JpaRepository<Users, Long> {
-    Users findFirstByUsernameAndPassword(String username, String pass);
+    Users findFirstByUsernameAndPasswordAndValidatedIsTrue(String username, String pass);
 
     Users findFirstByUsername(String username);
 

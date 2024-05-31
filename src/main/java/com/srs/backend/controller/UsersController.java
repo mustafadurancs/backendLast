@@ -36,7 +36,14 @@ public class UsersController {
     @PostMapping("/save")
     public ResponseEntity<Users> addUser(@RequestBody Users user) {
         Users userObject = userService.addUser(user);
+        SRSUtil.sendEmail(user.getUsername());
         return new ResponseEntity<Users>(userObject, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/approve")
+    public ResponseEntity<Boolean> validateUser(@RequestParam("username") String username) {
+        Boolean userValidated = userService.validateUser(username);
+        return new ResponseEntity<Boolean>(userValidated, HttpStatus.OK);
     }
 
     @PostMapping("/update")
@@ -44,6 +51,14 @@ public class UsersController {
         Users userObject = userService.updateUser(user);
         return new ResponseEntity<Users>(userObject, HttpStatus.OK);
     }
+
+//    @PostMapping("/rememberPass")
+//    public ResponseEntity<String> rememberPass(@RequestBody Users user) {
+//
+//        SRSUtil.sendEmail(user.getUsername(), "Test Subject", "Test Email Content");
+//
+//        return new ResponseEntity<String>(userObject, HttpStatus.OK);
+//    }
 
     @GetMapping("/all")
     public ResponseEntity<List<Users>> getAllUser() {
@@ -72,7 +87,7 @@ public class UsersController {
     }
 
 
-//     @RequestMapping(value = "/getpdf", method = RequestMethod.POST)
+    //     @RequestMapping(value = "/getpdf", method = RequestMethod.POST)
     @RequestMapping(value = "/getpdf", produces = "application/json", method = {RequestMethod.GET, RequestMethod.POST})
     public ResponseEntity<byte[]> getPDF(@RequestParam("userId") Long userId) {
 

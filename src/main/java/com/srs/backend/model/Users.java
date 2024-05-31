@@ -12,7 +12,6 @@ import java.util.Set;
 public class Users extends Persistable {
 
 
-
     @Column
     private String username;
     @Column
@@ -124,6 +123,10 @@ public class Users extends Persistable {
     @Column(name = "highLight")
     public String highLight;
 
+    @Column(name = "validated")
+    public boolean validated = false;
+
+    
     public String getUsername() {
         return username;
     }
