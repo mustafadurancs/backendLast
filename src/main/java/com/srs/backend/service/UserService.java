@@ -30,6 +30,17 @@ public class UserService {
         return false;
     }
 
+    public Boolean updatePassword(String uuid, String password) {
+        Users user = userRepository.findFirstByUsername(uuid);
+        if (user != null) {
+            user.setPassword(password);
+            userRepository.save(user);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     public Users updateUser(Users users) {
         Optional<Users> localUser = userRepository.findById(users.getId());

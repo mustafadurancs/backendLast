@@ -13,6 +13,8 @@ public class Users extends Persistable {
 
 
     @Column
+    private String uuid;
+    @Column
     private String username;
     @Column
     private String password;
@@ -438,5 +440,13 @@ public class Users extends Persistable {
 
     public void setHighLight(String highLight) {
         this.highLight = highLight;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

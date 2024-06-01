@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 
 @RestController
@@ -35,9 +36,25 @@ public class UsersController {
 
     @PostMapping("/save")
     public ResponseEntity<Users> addUser(@RequestBody Users user) {
+        UUID uuid = UUID.randomUUID();
+        user.setUuid(uuid.toString());
         Users userObject = userService.addUser(user);
-        SRSUtil.sendEmail(user.getUsername());
+        SRSUtil.sendEmail(true, "", user.getUsername());
         return new ResponseEntity<Users>(userObject, HttpStatus.CREATED);
+    }
+
+
+    @PostMapping("/sendPassEmail")
+    public ResponseEntity<Users> sendPassEmail(@RequestParam("username") String username) {
+        Users user = userService.getUserByUserNameAndPassword(username, "");
+        SRSUtil.sendEmail(false, user.getUuid(), username);
+        return new ResponseEntity<Users>(user, HttpStatus.OK);
+    }
+
+    @PostMapping("/updatePass")
+    public ResponseEntity<Boolean> updatePassword(@RequestParam("uuid") String uuid, @RequestParam("password") String password) {
+        Boolean userUpdated = userService.updatePassword(uuid, password);
+        return new ResponseEntity<Boolean>(userUpdated, HttpStatus.OK);
     }
 
     @PostMapping("/approve")
