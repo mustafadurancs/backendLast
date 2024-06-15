@@ -73,7 +73,7 @@ public class Questionaire extends Persistable {
 
     
     @Column(name = "payed")
-    public Boolean payed;
+    public boolean payed;
 
 //    public String getFormDescription() {
 //        return formDescription;
