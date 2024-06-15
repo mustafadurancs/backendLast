@@ -46,7 +46,7 @@ public class Questionaire extends Persistable {
     public double twoFourYear;
 
     @Column(name = "attendingHBCU")
-    public double attendingHBCU;
+    public boolean attendingHBCU;
 
     @Column(name = "startRatingBasedChart")
     public String startRatingBasedChart;
