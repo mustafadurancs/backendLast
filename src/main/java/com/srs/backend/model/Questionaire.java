@@ -9,13 +9,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "questionaire")
 public class Questionaire extends Persistable {
-
-    @Column(name = "formDescription")
-    public String formDescription;
-
-    @Column(name = "generalInfo")
-    public String generalInfo;
-
     @Column(name = "firstName")
     public String firstName;
 
@@ -25,23 +18,20 @@ public class Questionaire extends Persistable {
     @Column(name = "homeAddress")
     public String homeAddress;
 
-
     @Column(name = "city")
     public String city;
-
 
     @Column(name = "state")
     public String state;
 
+    @Column(name = "zipCode")
+    public String zipCode;
 
     @Column(name = "phoneNumber")
     public String phoneNumber;
 
     @Column(name = "email")
     public String email;
-
-    @Column(name = "academicInfo")
-    public String academicInfo;
 
     @Column(name = "GPA")
     public double GPA;
@@ -55,30 +45,51 @@ public class Questionaire extends Persistable {
     @Column(name = "twoFourYear")
     public double twoFourYear;
 
+    @Column(name = "attendingHBCU")
+    public double attendingHBCU;
+
     @Column(name = "startRatingBasedChart")
     public String startRatingBasedChart;
 
-    @Column(name = "ratingBasedChart")
-    public String ratingBasedChart;
+
+
+
+
+
+
+
+
+    //    @Column(name = "ratingBasedChart")
+//    public String ratingBasedChart;
+
+//    @Column(name = "formDescription")
+//    public String formDescription;
+//
+//    @Column(name = "generalInfo")
+//    public String generalInfo;
+//    @Column(name = "academicInfo")
+//    public String academicInfo;
+
+
     
     @Column(name = "payed")
     public Boolean payed;
 
-    public String getFormDescription() {
-        return formDescription;
-    }
-
-    public void setFormDescription(String formDescription) {
-        this.formDescription = formDescription;
-    }
-
-    public String getGeneralInfo() {
-        return generalInfo;
-    }
-
-    public void setGeneralInfo(String generalInfo) {
-        this.generalInfo = generalInfo;
-    }
+//    public String getFormDescription() {
+//        return formDescription;
+//    }
+//
+//    public void setFormDescription(String formDescription) {
+//        this.formDescription = formDescription;
+//    }
+//
+//    public String getGeneralInfo() {
+//        return generalInfo;
+//    }
+//
+//    public void setGeneralInfo(String generalInfo) {
+//        this.generalInfo = generalInfo;
+//    }
 
     public String getFirstName() {
         return firstName;
@@ -136,13 +147,13 @@ public class Questionaire extends Persistable {
         this.email = email;
     }
 
-    public String getAcademicInfo() {
-        return academicInfo;
-    }
-
-    public void setAcademicInfo(String academicInfo) {
-        this.academicInfo = academicInfo;
-    }
+//    public String getAcademicInfo() {
+//        return academicInfo;
+//    }
+//
+//    public void setAcademicInfo(String academicInfo) {
+//        this.academicInfo = academicInfo;
+//    }
 
     public double getGPA() {
         return GPA;
@@ -184,13 +195,13 @@ public class Questionaire extends Persistable {
         this.startRatingBasedChart = startRatingBasedChart;
     }
 
-    public String getRatingBasedChart() {
-        return ratingBasedChart;
-    }
-
-    public void setRatingBasedChart(String ratingBasedChart) {
-        this.ratingBasedChart = ratingBasedChart;
-    }
+//    public String getRatingBasedChart() {
+//        return ratingBasedChart;
+//    }
+//
+//    public void setRatingBasedChart(String ratingBasedChart) {
+//        this.ratingBasedChart = ratingBasedChart;
+//    }
 
     public Boolean getPayed() {
         return payed;
