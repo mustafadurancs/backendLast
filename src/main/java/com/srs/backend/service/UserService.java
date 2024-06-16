@@ -2,16 +2,19 @@ package com.srs.backend.service;
 
 import com.srs.backend.model.Users;
 import com.srs.backend.repositroy.UserRepository;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 
 @Service
 public class UserService {
-
+    private static final Logger log = getLogger(UserService.class);
     @Autowired
     private UserRepository userRepository;
 
@@ -32,7 +35,10 @@ public class UserService {
 
     public Boolean updatePassword(String uuid, String password) {
         Users user = userRepository.findFirstByUsername(uuid);
+        log.info("updatePassword  initialize method called. {}",user);
+
         if (user != null) {
+            log.info("inside updatePassword ");
             user.setPassword(password);
             userRepository.save(user);
             return true;

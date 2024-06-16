@@ -449,4 +449,50 @@ public class Users extends Persistable {
     public void setUuid(String uuid) {
         this.uuid = uuid;
     }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "uuid='" + uuid + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", schools=" + schools +
+                ", sport='" + sport + '\'' +
+                ", position='" + position + '\'' +
+                ", tangables='" + tangables + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", titter_handle='" + titter_handle + '\'' +
+                ", instagram='" + instagram + '\'' +
+                ", facebook='" + facebook + '\'' +
+                ", snapchat='" + snapchat + '\'' +
+                ", aboutMe='" + aboutMe + '\'' +
+                ", statistics='" + statistics + '\'' +
+                ", seniorYear='" + seniorYear + '\'' +
+                ", juniorYear='" + juniorYear + '\'' +
+                ", accolades='" + accolades + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", forty=" + forty +
+                ", fortyLazer=" + fortyLazer +
+                ", proShuttle=" + proShuttle +
+                ", verticle=" + verticle +
+                ", broadJump=" + broadJump +
+                ", bench=" + bench +
+                ", squat=" + squat +
+                ", pClean=" + pClean +
+                ", strength=" + strength +
+                ", speed=" + speed +
+                ", starRating=" + starRating +
+                ", gpa=" + gpa +
+                ", act=" + act +
+                ", sat=" + sat +
+                ", transcript='" + transcript + '\'' +
+                ", highLight='" + highLight + '\'' +
+                ", validated=" + validated +
+                '}';
+    }
 }
