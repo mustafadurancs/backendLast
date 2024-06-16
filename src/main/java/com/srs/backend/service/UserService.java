@@ -34,7 +34,9 @@ public class UserService {
     }
 
     public Boolean updatePassword(String uuid, String password) {
-        Users user = userRepository.findFirstByUsername(uuid);
+        log.info("updatePassword  initialize method called. uuid: {} password:{}", uuid,   password);
+
+        Users user = userRepository.findFirstByUuid(uuid);
         log.info("updatePassword  initialize method called. {}",user);
 
         if (user != null) {
