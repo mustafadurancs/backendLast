@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * @author Mustafa BILGIC
  * @created 23/12/2022
- * @project KARGO DROPh
+ * @project
  */
 @Entity
 @Table(name = "School")
@@ -17,48 +17,55 @@ public class School extends Persistable {
     public String city;
     @Column(name = "state")
     public String state;
-    @Column(name = "region")
-    public String region;
-    @Column(name = "type")
-    public String type;
-    @Column(name = "hbcu")
-    public String hbcu;
-    @Column(name = "conference")
-    public String conference;
-
-    @Column(name = "divisionOne")
-    public String divisionOne;
-
-    @Column(name = "divisionTwo")
-    public String divisionTwo;
 
     @Column(name = "twoFourYear")
-    public String twoFourYear;
+    public Integer twoFourYear;
+    @Column(name = "hbcu")
+    public String hbcu;
+
+    @Column(name = "type")
+    public String type;
+
+    @Column(name = "region")
+    public String region;
+
+
+    @Column(name = "ratingLevelMin")
+    public double ratingLevelMin;
+
+
+    @Column(name = "ratingLevelMax")
+    public double ratingLevelMax;
+
+    @Column(name = "division")
+    public String division;
+
+    @Column(name = "conferenceAbbreviation")
+    public String conferenceAbbreviation;
+
+
+
     @Column(name = "schoolWebsite")
     public String schoolWebsite;
     @Column(name = "athleticWebsite")
     public String athleticWebsite;
-    @Column(name = "nicheWebsite")
-    public String nicheWebsite;
-    @Column(name = "ACTRangeMin")
-    public Integer ACTRangeMin;
-    @Column(name = "ACTRangeMax")
-    public Integer ACTRangeMax;
-    @Column(name = "SATRangeMin")
-    public Integer SATRangeMin;
-    @Column(name = "SATRangeMax")
-    public Integer SATRangeMax;
+
+
     @Column(name = "GPA")
     public Double GPA;
+    @Column(name = "SAT")
+    public Integer SAT;
+    @Column(name = "ACT")
+    public Integer ACT;
 
 
-
-    @Column(name = "score")
-    public Double score;
+//    @Column(name = "score")
+//    public Double score;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)
     public Users user;
+
 
     public String getSchool() {
         return school;
@@ -84,20 +91,12 @@ public class School extends Persistable {
         this.state = state;
     }
 
-    public String getRegion() {
-        return region;
+    public Integer getTwoFourYear() {
+        return twoFourYear;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setTwoFourYear(Integer twoFourYear) {
+        this.twoFourYear = twoFourYear;
     }
 
     public String getHbcu() {
@@ -108,36 +107,54 @@ public class School extends Persistable {
         this.hbcu = hbcu;
     }
 
-    public String getConference() {
-        return conference;
+    public String getType() {
+        return type;
     }
 
-    public void setConference(String conference) {
-        this.conference = conference;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getDivisionOne() {
-        return divisionOne;
+    public String getRegion() {
+        return region;
     }
 
-    public void setDivisionOne(String divisionOne) {
-        this.divisionOne = divisionOne;
+    public void setRegion(String region) {
+        this.region = region;
     }
 
-    public String getDivisionTwo() {
-        return divisionTwo;
+    public double getRatingLevelMin() {
+        return ratingLevelMin;
     }
 
-    public void setDivisionTwo(String divisionTwo) {
-        this.divisionTwo = divisionTwo;
+    public void setRatingLevelMin(double ratingLevelMin) {
+        this.ratingLevelMin = ratingLevelMin;
     }
 
-    public String getTwoFourYear() {
-        return twoFourYear;
+    public double getRatingLevelMax() {
+        return ratingLevelMax;
     }
 
-    public void setTwoFourYear(String twoFourYear) {
-        this.twoFourYear = twoFourYear;
+    public void setRatingLevelMax(double ratingLevelMax) {
+        this.ratingLevelMax = ratingLevelMax;
+    }
+
+
+
+    public String getDivision() {
+        return division;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
+    }
+
+    public String getConferenceAbbreviation() {
+        return conferenceAbbreviation;
+    }
+
+    public void setConferenceAbbreviation(String conferenceAbbreviation) {
+        this.conferenceAbbreviation = conferenceAbbreviation;
     }
 
     public String getSchoolWebsite() {
@@ -156,46 +173,6 @@ public class School extends Persistable {
         this.athleticWebsite = athleticWebsite;
     }
 
-    public String getNicheWebsite() {
-        return nicheWebsite;
-    }
-
-    public void setNicheWebsite(String nicheWebsite) {
-        this.nicheWebsite = nicheWebsite;
-    }
-
-    public Integer getACTRangeMin() {
-        return ACTRangeMin;
-    }
-
-    public void setACTRangeMin(Integer ACTRangeMin) {
-        this.ACTRangeMin = ACTRangeMin;
-    }
-
-    public Integer getACTRangeMax() {
-        return ACTRangeMax;
-    }
-
-    public void setACTRangeMax(Integer ACTRangeMax) {
-        this.ACTRangeMax = ACTRangeMax;
-    }
-
-    public Integer getSATRangeMin() {
-        return SATRangeMin;
-    }
-
-    public void setSATRangeMin(Integer SATRangeMin) {
-        this.SATRangeMin = SATRangeMin;
-    }
-
-    public Integer getSATRangeMax() {
-        return SATRangeMax;
-    }
-
-    public void setSATRangeMax(Integer SATRangeMax) {
-        this.SATRangeMax = SATRangeMax;
-    }
-
     public Double getGPA() {
         return GPA;
     }
@@ -204,12 +181,20 @@ public class School extends Persistable {
         this.GPA = GPA;
     }
 
-    public Double getScore() {
-        return score;
+    public Integer getSAT() {
+        return SAT;
     }
 
-    public void setScore(Double score) {
-        this.score = score;
+    public void setSAT(Integer SAT) {
+        this.SAT = SAT;
+    }
+
+    public Integer getACT() {
+        return ACT;
+    }
+
+    public void setACT(Integer ACT) {
+        this.ACT = ACT;
     }
 
     public Users getUser() {
@@ -218,34 +203,6 @@ public class School extends Persistable {
 
     public void setUser(Users user) {
         this.user = user;
-    }
-
-
-    @Override
-    public String toString() {
-        return "School{" +
-                "id='" + super.getId() + '\'' +
-                "school='" + school + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", region='" + region + '\'' +
-                ", type='" + type + '\'' +
-                ", hbcu='" + hbcu + '\'' +
-                ", conference='" + conference + '\'' +
-                ", divisionOne='" + divisionOne + '\'' +
-                ", divisionTwo='" + divisionTwo + '\'' +
-                ", twoFourYear='" + twoFourYear + '\'' +
-                ", schoolWebsite='" + schoolWebsite + '\'' +
-                ", athleticWebsite='" + athleticWebsite + '\'' +
-                ", nicheWebsite='" + nicheWebsite + '\'' +
-                ", ACTRangeMin=" + ACTRangeMin +
-                ", ACTRangeMax=" + ACTRangeMax +
-                ", SATRangeMin=" + SATRangeMin +
-                ", SATRangeMax=" + SATRangeMax +
-                ", GPA='" + GPA + '\'' +
-                ", score=" + score +
-                ", user=" + user +
-                '}';
     }
 }
 
