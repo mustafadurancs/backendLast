@@ -59,8 +59,8 @@ public class School extends Persistable {
     public Integer ACT;
 
 
-//    @Column(name = "score")
-//    public Double score;
+    @Column(name = "score")
+    public Double score;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)
@@ -203,6 +203,14 @@ public class School extends Persistable {
 
     public void setUser(Users user) {
         this.user = user;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 }
 
