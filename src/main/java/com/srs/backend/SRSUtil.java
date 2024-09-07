@@ -253,11 +253,11 @@ public class SRSUtil {
     public static void sendEmail(boolean isSignUp, String uuid, String to) {
         String adress, text, link;
         if (isSignUp) {
-            adress = "https://test.hiddenathletes.com/sign-up-success?name=" + to;
+            adress = "https://hiddenathletesfront.onrender.com/sign-up-success?name=" + to;
             text = "Thanks for signing up. Click the link below to confirm your subscription and we'll keep you updated with the latest updates.";
             link = "Confirm your&nbsp;subscription";
         } else {
-            adress = "\"https://test.hiddenathletes.com/forgot-pass-edit?uu=" + uuid;
+            adress = "\"https://hiddenathletesfront.onrender.com/forgot-pass-edit?uu=" + uuid;
             text = "Click the link below to update your password.";
             link = "Forget&nbsp;Password";
         }
