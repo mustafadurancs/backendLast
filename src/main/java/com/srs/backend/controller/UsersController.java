@@ -104,7 +104,7 @@ public class UsersController {
     }
 
 
-    //     @RequestMapping(value = "/getpdf", method = RequestMethod.POST)
+
     @RequestMapping(value = "/getpdf", produces = "application/json", method = {RequestMethod.GET, RequestMethod.POST})
     public ResponseEntity<byte[]> getPDF(@RequestParam("userId") Long userId) {
 
@@ -112,7 +112,7 @@ public class UsersController {
         byte[] contents = new byte[999999999];
         if (optionalUserId.isPresent()) {
             Users user = optionalUserId.get();
-            List<School> schoolsByParameters = schoolService.getSchoolsByParameters(user.gpa, user.sat, user.act, "", "Private", 1, 4);
+            List<School> schoolsByParameters = schoolService.getSchoolsByParameters(user.gpa, user.sat, user.act, "", "Private","South",   4,4d);
             contents = SRSUtil.createPDF(user, schoolsByParameters);
         }
 

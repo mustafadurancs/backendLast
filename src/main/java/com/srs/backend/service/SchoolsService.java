@@ -1,5 +1,6 @@
 package com.srs.backend.service;
 
+import com.srs.backend.SchoolTypeEnums;
 import com.srs.backend.model.School;
 import com.srs.backend.repositroy.SchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,27 +33,19 @@ public class SchoolsService {
         return schools;
     }
 
-    public List<School> getSchoolsByParameters(double gpa, double sat, double act, String hbcu, String type, Integer starRate, Integer year) {
-        List<School> schools;
 
-
-        int range1 = 0, range2 = 30;
-
-        if (starRate != null && (starRate == 3)) {
-            range1 = 10;
-            range2 = 40;
-        } else if (starRate != null && (starRate == 2)) {
-            range1 = 20;
-            range2 = 50;
-        } else if (starRate != null && (starRate == 1)) {
-            range1 = 30;
-            range2 = 60;
+    public List<School> getSchoolsByParameters(double gpa,int sat,int act, String hbcu, String type,String region,  Integer year,double ratingLevel) {
+        List schools;
+        List hbcuParamList = new ArrayList();
+        if (hbcu != null && hbcu.equals("ALL")) {
+            hbcuParamList.add(SchoolTypeEnums.Private.name());
+            hbcuParamList.add(SchoolTypeEnums.Public.name());
+        } else {
+            hbcuParamList.add(hbcu);
         }
 
-
         if (year == 4) {
-            schools = schoolRepository.getSchoolsByParameters(gpa, sat, act, (hbcu!=null && hbcu.equals("BOTH") ) ? "" : hbcu, type, year);
-
+            schools = schoolRepository.getSchoolsByParameters(gpa, sat, act, hbcuParamList, type, region,year,ratingLevel);
         } else {
             schools = schoolRepository.getSchoolsByTwoFourYearContaining(year);
             if (schools.size() > 29) {

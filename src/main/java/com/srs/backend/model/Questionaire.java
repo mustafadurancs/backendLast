@@ -37,10 +37,10 @@ public class Questionaire extends Persistable {
     public double GPA;
 
     @Column(name = "SAT")
-    public double SAT;
+    public int SAT;
 
     @Column(name = "ACT")
-    public double ACT;
+    public int ACT;
 
     @Column(name = "twoFourYear")
     public double twoFourYear;
@@ -147,13 +147,7 @@ public class Questionaire extends Persistable {
         this.email = email;
     }
 
-//    public String getAcademicInfo() {
-//        return academicInfo;
-//    }
-//
-//    public void setAcademicInfo(String academicInfo) {
-//        this.academicInfo = academicInfo;
-//    }
+
 
     public double getGPA() {
         return GPA;
@@ -163,21 +157,17 @@ public class Questionaire extends Persistable {
         this.GPA = GPA;
     }
 
-    public double getSAT() {
+    public int getSAT() {
         return SAT;
     }
 
-    public void setSAT(double SAT) {
-        this.SAT = SAT;
-    }
+
 
     public double getACT() {
         return ACT;
     }
 
-    public void setACT(double ACT) {
-        this.ACT = ACT;
-    }
+
 
     public double getTwoFourYear() {
         return twoFourYear;
@@ -195,13 +185,13 @@ public class Questionaire extends Persistable {
         this.startRatingBasedChart = startRatingBasedChart;
     }
 
-//    public String getRatingBasedChart() {
-//        return ratingBasedChart;
-//    }
-//
-//    public void setRatingBasedChart(String ratingBasedChart) {
-//        this.ratingBasedChart = ratingBasedChart;
-//    }
+    public void setSAT(int SAT) {
+        this.SAT = SAT;
+    }
+
+    public void setACT(int ACT) {
+        this.ACT = ACT;
+    }
 
     public Boolean getPayed() {
         return payed;
@@ -210,4 +200,6 @@ public class Questionaire extends Persistable {
     public void setPayed(Boolean payed) {
         this.payed = payed;
     }
+
+
 }

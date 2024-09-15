@@ -107,17 +107,15 @@ public class Users extends Persistable {
     @Column(name = "speed")
     public double speed;
 
-    @Column(name = "starRtaing")
-    public double starRating;
 
     @Column(name = "gpa")
     public double gpa;
 
     @Column(name = "act")
-    public double act;
+    public int act;
 
     @Column(name = "sat")
-    public double sat;
+    public int sat;
 
     @Column(name = "transcript")
     public String transcript;
@@ -394,13 +392,7 @@ public class Users extends Persistable {
         this.speed = speed;
     }
 
-    public double getStarRating() {
-        return starRating;
-    }
 
-    public void setStarRating(double starRating) {
-        this.starRating = starRating;
-    }
 
     public double getGpa() {
         return gpa;
@@ -410,19 +402,19 @@ public class Users extends Persistable {
         this.gpa = gpa;
     }
 
-    public double getAct() {
+    public int getAct() {
         return act;
     }
 
-    public void setAct(double act) {
+    public void setAct(int act) {
         this.act = act;
     }
 
-    public double getSat() {
+    public int getSat() {
         return sat;
     }
 
-    public void setSat(double sat) {
+    public void setSat(int sat) {
         this.sat = sat;
     }
 
@@ -486,7 +478,6 @@ public class Users extends Persistable {
                 ", pClean=" + pClean +
                 ", strength=" + strength +
                 ", speed=" + speed +
-                ", starRating=" + starRating +
                 ", gpa=" + gpa +
                 ", act=" + act +
                 ", sat=" + sat +

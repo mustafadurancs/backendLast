@@ -44,9 +44,9 @@ public class SchoolsController {
     }
 
     @GetMapping("/schoolsByParameters")
-    public ResponseEntity<List<School>> getSchoolsByParameters(@RequestParam("gpa") Integer gpa, @RequestParam("sat") Integer sat, @RequestParam("act") Integer act, @RequestParam("hbcu") String hbcu,@RequestParam("type") String type, @RequestParam("starRate") Integer starRate, @RequestParam("year") Integer year) {
+    public ResponseEntity<List<School>> getSchoolsByParameters(@RequestParam("gpa") Double gpa, @RequestParam("sat") Integer sat, @RequestParam("act") Integer act, @RequestParam("hbcu") String hbcu,@RequestParam("type") String type,@RequestParam("region") String region , @RequestParam("year") Integer year, @RequestParam("ratingLevel") Double ratingLevel) {
 
-        List<School> schoolsByParameters = schoolService.getSchoolsByParameters(gpa, sat, act, hbcu,type, starRate, year);
+        List<School> schoolsByParameters = schoolService.getSchoolsByParameters(gpa, sat, act, hbcu,type, region, year,ratingLevel);
         return new ResponseEntity<List<School>>(schoolsByParameters, HttpStatus.OK);
     }
 

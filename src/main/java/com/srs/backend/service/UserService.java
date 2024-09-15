@@ -84,7 +84,7 @@ public class UserService {
         localUser.get().setpClean(users.getpClean());
         localUser.get().setStrength(users.getStrength());
         localUser.get().setSpeed(users.getSpeed());
-        localUser.get().setStarRating(users.getStarRating());
+
 
 
         localUser.get().setGpa(users.getGpa());

@@ -24,7 +24,7 @@ public class AthleticInfo extends Persistable {
     public double speed;
 
     @Column(name = "sat")
-    public double sat;
+    public int sat;
 
 
     @Column(name = "starRtaing")
@@ -66,11 +66,12 @@ public class AthleticInfo extends Persistable {
         this.speed = speed;
     }
 
-    public double getSat() {
+
+    public int getSat() {
         return sat;
     }
 
-    public void setSat(double sat) {
+    public void setSat(int sat) {
         this.sat = sat;
     }
 
