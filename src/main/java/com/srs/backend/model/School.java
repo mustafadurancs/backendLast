@@ -18,7 +18,7 @@ public class School extends Persistable {
     @Column(name = "state")
     public String state;
 
-    @Column(name = "twoFourYear")
+    @Column(name = "two_four_year")
     public Integer twoFourYear;
     @Column(name = "hbcu")
     public String hbcu;
@@ -30,24 +30,24 @@ public class School extends Persistable {
     public String region;
 
 
-    @Column(name = "ratingLevelMin")
+    @Column(name = "rating_level_min")
     public double ratingLevelMin;
 
 
-    @Column(name = "ratingLevelMax")
+    @Column(name = "rating_level_max")
     public double ratingLevelMax;
 
     @Column(name = "division")
     public String division;
 
-    @Column(name = "conferenceAbbreviation")
+    @Column(name = "conference_abbreviation")
     public String conferenceAbbreviation;
 
 
 
-    @Column(name = "schoolWebsite")
+    @Column(name = "school_website")
     public String schoolWebsite;
-    @Column(name = "athleticWebsite")
+    @Column(name = "athletic_website")
     public String athleticWebsite;
 
 

@@ -109,7 +109,7 @@ public class UsersController {
     public ResponseEntity<byte[]> getPDF(@RequestParam("userId") Long userId) {
 
         Optional<Users> optionalUserId = userService.findlUserById(userId);
-        byte[] contents = new byte[999999999];
+        byte[] contents = new byte[0];
         if (optionalUserId.isPresent()) {
             Users user = optionalUserId.get();
             List<School> schoolsByParameters = schoolService.getSchoolsByParameters(user.gpa, user.sat, user.act, "", "Private","South",   4,4d);

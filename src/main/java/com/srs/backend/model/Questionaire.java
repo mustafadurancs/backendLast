@@ -42,7 +42,7 @@ public class Questionaire extends Persistable {
     @Column(name = "ACT")
     public int ACT;
 
-    @Column(name = "twoFourYear")
+    @Column(name = "two_four_year")
     public double twoFourYear;
 
     @Column(name = "attendingHBCU")
@@ -50,10 +50,6 @@ public class Questionaire extends Persistable {
 
     @Column(name = "startRatingBasedChart")
     public String startRatingBasedChart;
-
-
-
-
 
 
 
@@ -70,10 +66,17 @@ public class Questionaire extends Persistable {
 //    @Column(name = "academicInfo")
 //    public String academicInfo;
 
-
-    
     @Column(name = "payed")
     public boolean payed;
+
+    @Column(name = "type")
+    public String type;
+
+    @Column(name = "region")
+    public String region;
+
+    @Column(name = "notes")
+    public String notes;
 
 //    public String getFormDescription() {
 //        return formDescription;
@@ -201,5 +204,19 @@ public class Questionaire extends Persistable {
         this.payed = payed;
     }
 
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
 }

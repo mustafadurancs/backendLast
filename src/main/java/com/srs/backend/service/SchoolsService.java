@@ -36,16 +36,20 @@ public class SchoolsService {
 
     public List<School> getSchoolsByParameters(double gpa,int sat,int act, String hbcu, String type,String region,  Integer year,double ratingLevel) {
         List schools;
-        List hbcuParamList = new ArrayList();
-        if (hbcu != null && hbcu.equals("ALL")) {
-            hbcuParamList.add(SchoolTypeEnums.Private.name());
-            hbcuParamList.add(SchoolTypeEnums.Public.name());
+        List<String> typeParamList = new ArrayList();
+        if (type != null && type.equals("ALL")) {
+            typeParamList.add(SchoolTypeEnums.Private.name());
+            typeParamList.add(SchoolTypeEnums.Public.name());
         } else {
-            hbcuParamList.add(hbcu);
+            typeParamList.add(type);
+        }
+
+        if (hbcu == null ||  hbcu=="") {
+            hbcu="No";
         }
 
         if (year == 4) {
-            schools = schoolRepository.getSchoolsByParameters(gpa, sat, act, hbcuParamList, type, region,year,ratingLevel);
+            schools = schoolRepository.getSchoolsByParameters(gpa, sat, act, hbcu, typeParamList, region,year,ratingLevel);
         } else {
             schools = schoolRepository.getSchoolsByTwoFourYearContaining(year);
             if (schools.size() > 29) {
