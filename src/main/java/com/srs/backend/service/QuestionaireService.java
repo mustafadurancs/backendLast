@@ -37,4 +37,8 @@ public class QuestionaireService {
     public void deleteQuestionaireById(Long athleticInfoId) {
         questionaireRepository.deleteById(athleticInfoId);
     }
+
+    public Optional<Questionaire> findlQuestionaireById(Long id) {
+        return questionaireRepository.findById(id);
+    }
 }

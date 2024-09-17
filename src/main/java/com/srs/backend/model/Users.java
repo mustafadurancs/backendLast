@@ -13,62 +13,68 @@ public class Users extends Persistable {
 
 
     @Column
-    private String uuid;
+    public String uuid;
     @Column
-    private String username;
+    public String username;
     @Column
-    private String password;
+    public String password;
     @Column
-    private String name;
+    public String name;
     @Column
-    private String lastname;
+    public String lastname;
 
     @JsonBackReference
     @OneToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-    private Set<School> schools;
+    public Set<School> schools;
+
+
+    @JsonBackReference
+    @OneToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    public Set<Questionaire> questionaire;
+
 //    @JsonBackReference
 //    @OneToMany(cascade = CascadeType.REFRESH, mappedBy = "user", fetch = FetchType.EAGER)
-//    private List<School> schools = new ArrayList<>();
+//    public List<School> schools = new ArrayList<>();
 
     @Column
-    private String sport;
+    public String sport;  //football basboll
     @Column
-    private String position;
+    public String position;  //defence
     @Column
-    private String tangables;
+    public String tangables;  //
     @Column
-    private String email;
+    public String email;
     @Column
-    private String phone;
+    public String phone;
     @Column
-    private String address;
+    public String address;
     @Column
-    private String titter_handle;
+    public String titter_handle;
 
     @Column
-    private String instagram;
+    public String instagram;
 
     @Column
-    private String facebook;
+    public String facebook;
 
     @Column
-    private String snapchat;
+    public String snapchat;
 
     @Column
-    private String aboutMe;
+    public String aboutMe;
 
     @Column
-    private String statistics;
+    public String statistics;
 
     @Column
-    private String seniorYear;
+    public String seniorYear;
 
 
     @Column
-    private String juniorYear;
+    public String juniorYear;
 
     @Column
-    private String accolades;
+    public String accolades;
 
     @Column(name = "height")
     public int height;
@@ -126,320 +132,160 @@ public class Users extends Persistable {
     @Column(name = "validated")
     public boolean validated = false;
 
-    
-    public String getUsername() {
-        return username;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
-    }
-
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public Set<School> getSchools() {
-        return schools;
     }
 
     public void setSchools(Set<School> schools) {
         this.schools = schools;
     }
 
-
-//    public List<School> getSchools() {
-//        return schools;
-//    }
-//
-//    public void setSchools(List<School> schools) {
-//        this.schools = schools;
-//    }
-
-    public String getSport() {
-        return sport;
-    }
-
     public void setSport(String sport) {
         this.sport = sport;
-    }
-
-    public String getPosition() {
-        return position;
     }
 
     public void setPosition(String position) {
         this.position = position;
     }
 
-    public String getTangables() {
-        return tangables;
-    }
-
     public void setTangables(String tangables) {
         this.tangables = tangables;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
     }
 
-    public String getTitter_handle() {
-        return titter_handle;
-    }
-
     public void setTitter_handle(String titter_handle) {
         this.titter_handle = titter_handle;
-    }
-
-    public String getInstagram() {
-        return instagram;
     }
 
     public void setInstagram(String instagram) {
         this.instagram = instagram;
     }
 
-    public String getFacebook() {
-        return facebook;
-    }
-
     public void setFacebook(String facebook) {
         this.facebook = facebook;
-    }
-
-    public String getSnapchat() {
-        return snapchat;
     }
 
     public void setSnapchat(String snapchat) {
         this.snapchat = snapchat;
     }
 
-    public String getAboutMe() {
-        return aboutMe;
-    }
-
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
-    }
-
-    public String getStatistics() {
-        return statistics;
     }
 
     public void setStatistics(String statistics) {
         this.statistics = statistics;
     }
 
-    public String getSeniorYear() {
-        return seniorYear;
-    }
-
     public void setSeniorYear(String seniorYear) {
         this.seniorYear = seniorYear;
-    }
-
-    public String getJuniorYear() {
-        return juniorYear;
     }
 
     public void setJuniorYear(String juniorYear) {
         this.juniorYear = juniorYear;
     }
 
-    public String getAccolades() {
-        return accolades;
-    }
-
     public void setAccolades(String accolades) {
         this.accolades = accolades;
-    }
-
-    public int getHeight() {
-        return height;
     }
 
     public void setHeight(int height) {
         this.height = height;
     }
 
-    public double getWeight() {
-        return weight;
-    }
-
     public void setWeight(double weight) {
         this.weight = weight;
-    }
-
-    public double getForty() {
-        return forty;
     }
 
     public void setForty(double forty) {
         this.forty = forty;
     }
 
-    public double getFortyLazer() {
-        return fortyLazer;
-    }
-
     public void setFortyLazer(double fortyLazer) {
         this.fortyLazer = fortyLazer;
-    }
-
-    public double getProShuttle() {
-        return proShuttle;
     }
 
     public void setProShuttle(double proShuttle) {
         this.proShuttle = proShuttle;
     }
 
-    public double getVerticle() {
-        return verticle;
-    }
-
     public void setVerticle(double verticle) {
         this.verticle = verticle;
-    }
-
-    public double getBroadJump() {
-        return broadJump;
     }
 
     public void setBroadJump(double broadJump) {
         this.broadJump = broadJump;
     }
 
-    public double getBench() {
-        return bench;
-    }
-
     public void setBench(double bench) {
         this.bench = bench;
-    }
-
-    public double getSquat() {
-        return squat;
     }
 
     public void setSquat(double squat) {
         this.squat = squat;
     }
 
-    public double getpClean() {
-        return pClean;
-    }
-
     public void setpClean(double pClean) {
         this.pClean = pClean;
-    }
-
-    public double getStrength() {
-        return strength;
     }
 
     public void setStrength(double strength) {
         this.strength = strength;
     }
 
-    public double getSpeed() {
-        return speed;
-    }
-
     public void setSpeed(double speed) {
         this.speed = speed;
-    }
-
-
-
-    public double getGpa() {
-        return gpa;
     }
 
     public void setGpa(double gpa) {
         this.gpa = gpa;
     }
 
-    public int getAct() {
-        return act;
-    }
-
     public void setAct(int act) {
         this.act = act;
-    }
-
-    public int getSat() {
-        return sat;
     }
 
     public void setSat(int sat) {
         this.sat = sat;
     }
 
-    public String getTranscript() {
-        return transcript;
-    }
-
     public void setTranscript(String transcript) {
         this.transcript = transcript;
-    }
-
-    public String getHighLight() {
-        return highLight;
     }
 
     public void setHighLight(String highLight) {
         this.highLight = highLight;
     }
 
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setValidated(boolean validated) {
+        this.validated = validated;
     }
 
     @Override

@@ -2,8 +2,10 @@ package com.srs.backend.controller;
 
 
 import com.srs.backend.SRSUtil;
+import com.srs.backend.model.Questionaire;
 import com.srs.backend.model.School;
 import com.srs.backend.model.Users;
+import com.srs.backend.service.QuestionaireService;
 import com.srs.backend.service.SchoolsService;
 import com.srs.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,9 @@ public class UsersController {
     @Autowired
     private SchoolsService schoolService;
 
+    @Autowired
+    private QuestionaireService questionaireService;
+
     @GetMapping("/message")
     public String getMessage() {
         return "it OK.";
@@ -37,9 +42,9 @@ public class UsersController {
     @PostMapping("/save")
     public ResponseEntity<Users> addUser(@RequestBody Users user) {
         UUID uuid = UUID.randomUUID();
-        user.setUuid(uuid.toString());
+        user.uuid=(uuid.toString());
         Users userObject = userService.addUser(user);
-        SRSUtil.sendEmail(true, "", user.getUsername());
+        SRSUtil.sendEmail(true, "", user.username );
         return new ResponseEntity<Users>(userObject, HttpStatus.CREATED);
     }
 
@@ -47,7 +52,7 @@ public class UsersController {
     @PostMapping("/sendPassEmail")
     public ResponseEntity<Users> sendPassEmail(@RequestParam("username") String username) {
         Users user = userService.getUserByUserNameAndPassword(username, "");
-        SRSUtil.sendEmail(false, user.getUuid(), username);
+        SRSUtil.sendEmail(false, user.uuid, username);
         return new ResponseEntity<Users>(user, HttpStatus.OK);
     }
 
@@ -85,7 +90,7 @@ public class UsersController {
 
     @GetMapping("/bid")
     public ResponseEntity<Users> getUserId(@RequestBody Users user) {
-        Users userObject = userService.getUserByUserNameAndPassword(user.getUsername(), user.getPassword());
+        Users userObject = userService.getUserByUserNameAndPassword(user.username, user.password);
         return new ResponseEntity<Users>(userObject, HttpStatus.OK);
     }
 
@@ -99,20 +104,22 @@ public class UsersController {
 
     @DeleteMapping("/delete")
     public ResponseEntity<Void> deleteUserByUsername(@RequestBody Users user) {
-        userService.deleteUserByUsername(user.getUsername());
+        userService.deleteUserByUsername(user.username);
         return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
     }
 
 
 
     @RequestMapping(value = "/getpdf", produces = "application/json", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResponseEntity<byte[]> getPDF(@RequestParam("userId") Long userId) {
+    public ResponseEntity<byte[]> getPDF(@RequestParam("questionaire") Long questionaireId) {
 
-        Optional<Users> optionalUserId = userService.findlUserById(userId);
+//        Optional<Users> optionalUserId = userService.findlUserById(userId);
+        Optional<Questionaire> optionalQuestionaire = questionaireService.findlQuestionaireById(questionaireId);
         byte[] contents = new byte[0];
-        if (optionalUserId.isPresent()) {
-            Users user = optionalUserId.get();
-            List<School> schoolsByParameters = schoolService.getSchoolsByParameters(user.gpa, user.sat, user.act, "", "Private","South",   4,4d);
+        if (optionalQuestionaire.isPresent()) {
+            Questionaire questionaire = optionalQuestionaire.get();
+            Users user=questionaire.user;
+            List<School> schoolsByParameters = schoolService.getSchoolsByParameters(user.gpa, user.sat, user.act, "", questionaire.type,questionaire.region,questionaire.twoFourYear   ,questionaire.startRatingBasedChart);
             contents = SRSUtil.createPDF(user, schoolsByParameters);
         }
 

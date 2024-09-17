@@ -39,37 +39,37 @@ public class SRSUtil {
                 50f); // down
 
         String myContantTitle = "My Contact";
-        String email = "email:" + user.getEmail();
-        String phone = "phone:" + user.getPhone();
-        String facebook = "facebook:" + user.getFacebook();
+        String email = "email:" + user.email;
+        String phone = "phone:" + user.phone;
+        String facebook = "facebook:" + user.facebook;
 
         String tangiblesTitle = "Tangibles";
-        String highLight = "HighLight:" + user.getHighLight();
-        String weight = "Weight:" + String.valueOf(user.getWeight());
-        String height = "Forty:" + String.valueOf(user.getHeight());
+        String highLight = "HighLight:" + user.highLight;
+        String weight = "Weight:" + String.valueOf(user.weight);
+        String height = "Forty:" + String.valueOf(user.height);
 
-        String speed = "Speed:" + String.valueOf(user.getSpeed());
-        String squat = "Squat:" + String.valueOf(user.getSquat());
+        String speed = "Speed:" + String.valueOf(user.speed);
+        String squat = "Squat:" + String.valueOf(user.squat);
 
         String aboutMeTitle = "About Me";
-        String aboutMeText = user.getAboutMe();
+        String aboutMeText = user.aboutMe;
 
         String acedemicsTitle = "Acedemics";
-        String act = "Act:" + String.valueOf(user.getAct());
-        String gpa = "Gpa:" + String.valueOf(user.getGpa());
-        String sat = "Sat:" + String.valueOf(user.getSat());
-        String instagram = "Instagram:" + String.valueOf(user.getInstagram());
-        String bench = "Bench:" + String.valueOf(user.getBench());
-        String broadJump = "BroadJump:" + String.valueOf(user.getBroadJump());
-        String forty = "Forty:" + String.valueOf(user.getForty());
-        String fortyLazer = "FortyLazer:" + String.valueOf(user.getFortyLazer());
+        String act = "Act:" + String.valueOf(user.act);
+        String gpa = "Gpa:" + String.valueOf(user.gpa);
+        String sat = "Sat:" + String.valueOf(user.sat);
+        String instagram = "Instagram:" + String.valueOf(user.instagram);
+        String bench = "Bench:" + String.valueOf(user.bench);
+        String broadJump = "BroadJump:" + String.valueOf(user.broadJump);
+        String forty = "Forty:" + String.valueOf(user.forty);
+        String fortyLazer = "FortyLazer:" + String.valueOf(user.fortyLazer);
 
 
         String seniorYearTitle = "Senior Year";
-        String senior = user.getSeniorYear();
+        String senior = user.seniorYear;
 
         String juniorYearTitle = "Junior Year";
-        String junior = user.getJuniorYear();
+        String junior = user.juniorYear;
 
         String schoolsTitle = "List Of School";
         // Define a string as title
