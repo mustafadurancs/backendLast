@@ -111,7 +111,7 @@ public class UsersController {
 
 
     @RequestMapping(value = "/getpdf", produces = "application/json", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResponseEntity<byte[]> getPDF(@RequestParam("questionaire") Long questionaireId) {
+    public ResponseEntity<byte[]> getPDF(@RequestParam("questionaireId") Long questionaireId) {
 
 //        Optional<Users> optionalUserId = userService.findlUserById(userId);
         Optional<Questionaire> optionalQuestionaire = questionaireService.findlQuestionaireById(questionaireId);
