@@ -28,7 +28,7 @@ public class Users extends Persistable {
     public Set<School> schools;
 
 
-    @JsonBackReference
+//    @JsonBackReference
     @OneToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     public Set<Questionaire> questionaire;
 

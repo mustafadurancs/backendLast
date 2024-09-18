@@ -18,7 +18,7 @@ public class QuestionaireController {
     @Autowired
     private QuestionaireService questionaireService;
 
-    @PostMapping("/save")
+    @PostMapping(value="/save" , consumes={"application/json"})
     public ResponseEntity<Questionaire> addQuestionaire(@RequestBody Questionaire questionaire) {
         Questionaire addQuestionaire = questionaireService.addQuestionaire(questionaire);
         return new ResponseEntity<Questionaire>(addQuestionaire, HttpStatus.CREATED);
