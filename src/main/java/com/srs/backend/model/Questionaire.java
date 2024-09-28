@@ -42,10 +42,10 @@ public class Questionaire extends Persistable {
 //
     @Column(name = "two_four_year")
     public int twoFourYear;
-//
-//    @Column(name = "attendingHBCU")
-//    public boolean attendingHBCU;
-//
+
+    @Column(name = "attendingHBCU")
+    public boolean attendingHBCU;
+
     @Column(name = "startRatingBasedChart")
     public double startRatingBasedChart;
 
@@ -68,9 +68,9 @@ public class Questionaire extends Persistable {
 //
     @Column(name = "region")
     public String region;
-//
-//    @Column(name = "notes")
-//    public String notes;
+
+    @Column(name = "notes")
+    public String notes;
 
 @ManyToOne
 @JoinColumn(name = "user_id", nullable = true)
