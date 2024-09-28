@@ -41,4 +41,9 @@ public class QuestionaireService {
     public Optional<Questionaire> findlQuestionaireById(Long id) {
         return questionaireRepository.findById(id);
     }
+
+
+    public List<Questionaire> findlQuestionaireByUserId(Long userId) {
+        return questionaireRepository.findAllByUserId(userId);
+    }
 }

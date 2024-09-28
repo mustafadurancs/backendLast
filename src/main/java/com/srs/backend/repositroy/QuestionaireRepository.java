@@ -1,7 +1,10 @@
 package com.srs.backend.repositroy;
 
 import com.srs.backend.model.Questionaire;
+import com.srs.backend.model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 /**
  * @author Mustafa BILGIC
@@ -9,4 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @project KARGO DROP
  */
 public interface QuestionaireRepository extends JpaRepository<Questionaire,Long> {
+
+   List<Questionaire> findAllByUserId(Long userId);
+
 }

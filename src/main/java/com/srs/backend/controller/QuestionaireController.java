@@ -18,7 +18,7 @@ public class QuestionaireController {
     @Autowired
     private QuestionaireService questionaireService;
 
-    @PostMapping(value="/save" , consumes={"application/json"})
+    @PostMapping(value = "/save", consumes = {"application/json"})
     public ResponseEntity<Questionaire> addQuestionaire(@RequestBody Questionaire questionaire) {
         Questionaire addQuestionaire = questionaireService.addQuestionaire(questionaire);
         return new ResponseEntity<Questionaire>(addQuestionaire, HttpStatus.CREATED);
@@ -34,6 +34,12 @@ public class QuestionaireController {
     public ResponseEntity<Questionaire> getQuestionaireById(@PathVariable("id") Long id) {
         Questionaire questionaire = questionaireService.getQuestionaireById(id);
         return new ResponseEntity<Questionaire>(questionaire, HttpStatus.OK);
+    }
+
+    @GetMapping("/userId/{userId}")
+    public ResponseEntity<List<Questionaire>> getQuestionaireByUserId(@PathVariable("userId") Long userId) {
+        List<Questionaire> questionaireList = questionaireService.findlQuestionaireByUserId(userId);
+        return new ResponseEntity<List<Questionaire>>(questionaireList, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
