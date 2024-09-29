@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -37,9 +38,11 @@ public class QuestionaireController {
     }
 
     @GetMapping("/userId/{userId}")
-    public ResponseEntity<List<Questionaire>> getQuestionaireByUserId(@PathVariable("userId") Long userId) {
+    public ResponseEntity<List<Long>> getQuestionaireByUserId(@PathVariable("userId") Long userId) {
         List<Questionaire> questionaireList = questionaireService.findlQuestionaireByUserId(userId);
-        return new ResponseEntity<List<Questionaire>>(questionaireList, HttpStatus.OK);
+        List<Long> idList = questionaireList.stream()
+                .map(Questionaire::getId).collect(Collectors.toList());
+        return new ResponseEntity<List<Long>>(idList, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
