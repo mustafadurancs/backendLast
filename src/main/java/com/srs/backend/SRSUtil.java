@@ -274,7 +274,8 @@ public class SRSUtil {
 
         // Your email credentials
         final String username = "support@hiddenathletes.com";
-        final String password = "ehpiylnwvyzydkou";
+        final String password = "eqldfwztagodkrf";
+
 
         // Get the default Session object
         Session session = Session.getInstance(properties, new Authenticator() {
