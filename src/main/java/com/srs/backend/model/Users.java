@@ -77,7 +77,7 @@ public class Users extends Persistable {
     public String accolades;
 
     @Column(name = "height")
-    public int height;
+    public double height;
 
     @Column(name = "weight")
     public double weight;
@@ -216,7 +216,7 @@ public class Users extends Persistable {
         this.accolades = accolades;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 

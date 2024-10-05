@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class AthleticInfo extends Persistable {
 
     @Column(name = "height")
-    public int height;
+    public double height;
 
     @Column(name="weight")
     public double weight;
@@ -34,11 +34,11 @@ public class AthleticInfo extends Persistable {
     @Column(name = "gpa")
     public double gpa;
 
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
