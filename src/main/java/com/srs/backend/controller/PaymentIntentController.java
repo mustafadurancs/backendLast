@@ -18,6 +18,7 @@ public class PaymentIntentController {
     @PostMapping("/create-payment-intent")
     public Response createPaymentIntent(@RequestBody Request request)
             throws StripeException {
+        System.out.println("test payment ********************************************************************");
         PaymentIntentCreateParams params =
                 PaymentIntentCreateParams.builder()
                         .setAmount(request.getAmount() * 100L)
