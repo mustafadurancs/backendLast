@@ -60,8 +60,8 @@ public class Questionaire extends Persistable {
 //    @Column(name = "academicInfo")
 //    public String academicInfo;
 
-    @Column(name = "payed")
-    public boolean payed;
+    @Column(name = "paid")
+    public boolean paid;
 
     @Column(name = "type")
     public String type;
