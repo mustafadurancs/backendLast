@@ -38,11 +38,12 @@ public class QuestionaireController {
     }
 
     @GetMapping("/userId/{userId}")
-    public ResponseEntity<List<Long>> getQuestionaireByUserId(@PathVariable("userId") Long userId) {
+    public ResponseEntity<List<Questionaire>> getQuestionaireByUserId(@PathVariable("userId") Long userId) {
         List<Questionaire> questionaireList = questionaireService.findlQuestionaireByUserId(userId);
-        List<Long> idList = questionaireList.stream()
-                .map(Questionaire::getId).collect(Collectors.toList());
-        return new ResponseEntity<List<Long>>(idList, HttpStatus.OK);
+//        List<Long> idList = questionaireList.stream()
+//                .map(Questionaire::getId).collect(Collectors.toList());
+//        return new ResponseEntity<List<Long>>(idList, HttpStatus.OK);
+        return new ResponseEntity<List<Questionaire>>(questionaireList, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
