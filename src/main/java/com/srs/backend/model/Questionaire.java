@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "questionaire")
 public class Questionaire extends Persistable {
-//    @Column(name = "firstName")
+    //    @Column(name = "firstName")
 //    public String firstName;
 //
 //    @Column(name = "lastName")
@@ -48,6 +48,8 @@ public class Questionaire extends Persistable {
 
     @Column(name = "startRatingBasedChart")
     public double startRatingBasedChart;
+    @Column(name = "price")
+    public double price;
 
 //    @Column(name = "ratingBasedChart")
 //    public String ratingBasedChart;
@@ -65,15 +67,16 @@ public class Questionaire extends Persistable {
 
     @Column(name = "type")
     public String type;
-//
+    //
     @Column(name = "region")
     public String region;
 
     @Column(name = "notes")
     public String notes;
 
-@ManyToOne
-@JoinColumn(name = "user_id", nullable = true)
-public Users user;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = true)
+    public Users user;
+
 
 }

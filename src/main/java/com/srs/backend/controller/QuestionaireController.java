@@ -25,6 +25,12 @@ public class QuestionaireController {
         return new ResponseEntity<Questionaire>(addQuestionaire, HttpStatus.CREATED);
     }
 
+    @PostMapping(value = "/payment-succeed", consumes = {"application/json"})
+    public ResponseEntity addQuestionaire(@RequestParam("id") Long id, @RequestParam("price") Double price) {
+            questionaireService.updatePaymentInfo(id,price);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<Questionaire>> getAllQuestionaire() {
         List<Questionaire> allQuestionaire = questionaireService.findAllQuestionaire();

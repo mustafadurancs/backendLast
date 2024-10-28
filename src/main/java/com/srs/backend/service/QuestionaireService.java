@@ -20,6 +20,10 @@ public class QuestionaireService {
         return questionaireRepository.save(questionaire);
     }
 
+    public void updatePaymentInfo(Long id,Double payment) {
+          questionaireRepository.updatePaymentInfo(id,payment);
+    }
+
     public List<Questionaire> findAllQuestionaire() {
         return questionaireRepository.findAll();
     }
