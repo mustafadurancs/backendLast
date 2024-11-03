@@ -49,7 +49,7 @@ public class Questionaire extends Persistable {
     @Column(name = "startRatingBasedChart")
     public double startRatingBasedChart;
     @Column(name = "price")
-    public double price;
+    public double price=0d;
 
 //    @Column(name = "ratingBasedChart")
 //    public String ratingBasedChart;
