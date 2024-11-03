@@ -49,7 +49,7 @@ public class Questionaire extends Persistable {
     @Column(name = "startRatingBasedChart")
     public double startRatingBasedChart;
     @Column(name = "price")
-    public double price=0d;
+    public Double price ;
 
 //    @Column(name = "ratingBasedChart")
 //    public String ratingBasedChart;
@@ -78,5 +78,14 @@ public class Questionaire extends Persistable {
     @JoinColumn(name = "user_id", nullable = true)
     public Users user;
 
+    public Double getPrice() {
+        if (price==null){
+            return 0d;
+        }
+        return price;
+    }
 
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }
