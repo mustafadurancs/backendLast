@@ -27,6 +27,7 @@ public class QuestionaireController {
 
     @PostMapping(value = "/payment-succeed", consumes = {"application/json"})
     public ResponseEntity addQuestionaire(@RequestParam("id") Long id, @RequestParam("price") Double price) {
+        System.out.println(" _______________________________ called/payment-succeed   id:"+ id+" price: "+price);
             questionaireService.updatePaymentInfo(id,price);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
