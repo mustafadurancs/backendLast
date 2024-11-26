@@ -4,6 +4,11 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.draw.DottedLineSeparator;
 import com.lowagie.text.*;
 import com.lowagie.text.Font;
 import com.lowagie.text.pdf.MultiColumnText;
@@ -39,9 +44,11 @@ public class SRSUtil {
                 50f); // down
 
         String myContantTitle = "My Contact";
-        String email = "email:" + user.email;
-        String phone = "phone:" + user.phone;
-        String facebook = "facebook:" + user.facebook;
+        String name = "Name:" + user.name;
+        String lastName = "Last Name:" + user.lastname;
+        String email = "Email:" + user.username;
+        String phone = "Phone:" + user.phone;
+        String facebook = "Facebook:" + user.facebook;
 
         String tangiblesTitle = "Tangibles";
         String highLight = "HighLight:" + user.highLight;
@@ -54,7 +61,7 @@ public class SRSUtil {
         String aboutMeTitle = "About Me";
         String aboutMeText = user.aboutMe;
 
-        String acedemicsTitle = "Acedemics";
+        String academicsTitle = "Academics";
         String act = "Act:" + String.valueOf(user.act);
         String gpa = "Gpa:" + String.valueOf(user.gpa);
         String sat = "Sat:" + String.valueOf(user.sat);
@@ -83,11 +90,11 @@ public class SRSUtil {
 
         //2) Create the header of the table
         ArrayList<String> headerTable = new ArrayList<>();
-        headerTable.add("schoolName");
-        headerTable.add("city");
-        headerTable.add("state");
-        headerTable.add("type");
-        headerTable.add("region");
+        headerTable.add("SchoolName");
+        headerTable.add("City");
+        headerTable.add("State");
+        headerTable.add("Type");
+        headerTable.add("Region");
 
         headerTable.forEach(e -> {
             Cell current = new Cell(new Phrase(e));
@@ -98,13 +105,6 @@ public class SRSUtil {
 
         // 3) Then create a list of rows and add them to the table
         LinkedHashMap<Integer, List<String>> listRows = new LinkedHashMap<>();
-
-//        Object[] namesArray = user.getSchools().toArray();
-//        for (int i = 0; i < namesArray.length; i++) {
-//            School school = (School) namesArray[i];
-//            listRows.put(i, Arrays.asList(school.getSchool(), school.getCity(), school.getState(), school.getType(), school.getRegion()));
-//            System.out.println(i + ": " + namesArray[i]);
-//        }
 
 
         for (int i = 0; i < schoolsByParameters.size(); i++) {
@@ -136,14 +136,14 @@ public class SRSUtil {
                 @Override
                 public void onEndPage(PdfWriter writer, Document document) {
                     PdfContentByte cb = writer.getDirectContent();
-//                    cb.rectangle(header);
-//                    cb.rectangle(footer);
+
                 }
             });
 
             myPDFDoc.open();  // Open the Document
             // Create a Font object
-            Font titleFont = new Font(Font.COURIER, 12f, Font.BOLDITALIC, Color.getHSBColor(19, 142, 148));
+
+            Font titleFont = new Font(Font.COURIER, 14f, Font.BOLD, new Color(9, 67, 115));
 
             // Create a paragraph with the new font
             Paragraph paragraph = new Paragraph(title, titleFont);
@@ -158,74 +158,65 @@ public class SRSUtil {
             myPDFDoc.add(new Paragraph(Chunk.NEWLINE));
 
             // Include the text as content of the pdf
-//            myPDFDoc.add(new Paragraph(lorenIpsum1));
-            MultiColumnText mct = new MultiColumnText();
+             MultiColumnText mct = new MultiColumnText();
             mct.setColumnsRightToLeft(false);
             mct.addRegularColumns(myPDFDoc.left(), myPDFDoc.right(), 40f, 2);
 
+            mct.addElement(new Paragraph(Chunk.NEWLINE));
 
             mct.addElement(new Paragraph(myContantTitle, titleFont));
 
 
-            mct.addElement(new Paragraph(phone));
+            mct.addElement(new Paragraph(name));
+            mct.addElement(new Paragraph(lastName));
             mct.addElement(new Paragraph(email));
+            mct.addElement(new Paragraph(phone));
             mct.addElement(new Paragraph(facebook));
+            mct.addElement(new Paragraph(instagram));
+            // Adding an empty line
+            mct.addElement(new Paragraph(Chunk.NEWLINE));
+
 
             mct.addElement(new Paragraph(aboutMeTitle, titleFont));
             mct.addElement(new Paragraph(aboutMeText));
 
-
+            mct.addElement(new Paragraph(Chunk.NEWLINE));
             mct.addElement(new Paragraph(tangiblesTitle, titleFont));
             mct.addElement(new Paragraph(height));
             mct.addElement(new Paragraph(highLight));
             mct.addElement(new Paragraph(speed));
             mct.addElement(new Paragraph(squat));
+            mct.addElement(new Paragraph(weight));
 
-            mct.addElement(new Paragraph(instagram));
+
             mct.addElement(new Paragraph(bench));
             mct.addElement(new Paragraph(broadJump));
             mct.addElement(new Paragraph(forty));
             mct.addElement(new Paragraph(fortyLazer));
 
 
-            mct.addElement(new Paragraph(acedemicsTitle, titleFont));
+            mct.addElement(new Paragraph(Chunk.NEWLINE));
+            mct.addElement(new Paragraph(academicsTitle, titleFont));
             mct.addElement(new Paragraph(act));
             mct.addElement(new Paragraph(sat));
             mct.addElement(new Paragraph(gpa));
-
+            mct.addElement(new Paragraph(Chunk.NEWLINE));
             mct.addElement(new Paragraph(seniorYearTitle, titleFont));
             mct.addElement(new Paragraph(senior));
 
-
+            mct.addElement(new Paragraph(Chunk.NEWLINE));
             mct.addElement(new Paragraph(juniorYearTitle, titleFont));
             mct.addElement(new Paragraph(junior));
 
 
-            mct.addElement(new Paragraph(myContantTitle, titleFont));
-            mct.addElement(new Paragraph(phone));
-            mct.addElement(new Paragraph(email));
-            mct.addElement(new Paragraph(facebook));
-
+            mct.addElement(new Paragraph(Chunk.NEWLINE));
             mct.addElement(new Paragraph(aboutMeTitle, titleFont));
             mct.addElement(new Paragraph(aboutMeText));
 
 
-            mct.addElement(new Paragraph(tangiblesTitle, titleFont));
-            mct.addElement(new Paragraph(height));
-            mct.addElement(new Paragraph(weight));
 
 
-            mct.addElement(new Paragraph(acedemicsTitle, titleFont));
-            mct.addElement(new Paragraph(act));
-            mct.addElement(new Paragraph(sat));
-            mct.addElement(new Paragraph(gpa));
 
-            mct.addElement(new Paragraph(seniorYearTitle, titleFont));
-            mct.addElement(new Paragraph(senior));
-
-
-            mct.addElement(new Paragraph(juniorYearTitle, titleFont));
-            mct.addElement(new Paragraph(junior));
 
 
             // 4)Finally add the table to the document
@@ -242,7 +233,7 @@ public class SRSUtil {
 
             return pdfBytes;
 
-        } catch (IOException de) {
+        } catch (IOException   de) {
             System.err.println(de.getMessage());
         }
 
