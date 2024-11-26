@@ -4,11 +4,7 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.draw.DottedLineSeparator;
+
 import com.lowagie.text.*;
 import com.lowagie.text.Font;
 import com.lowagie.text.pdf.MultiColumnText;
