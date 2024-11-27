@@ -95,6 +95,9 @@ public class Users extends Persistable {
     @Column(name = "verticle")
     public double verticle;
 
+    @Column(name = "verticalJump")
+    public double verticalJump;
+
     @Column(name = "broadJump")
     public double broadJump;
 
@@ -286,6 +289,14 @@ public class Users extends Persistable {
 
     public void setValidated(boolean validated) {
         this.validated = validated;
+    }
+
+    public double getVerticalJump() {
+        return verticalJump;
+    }
+
+    public void setVerticalJump(double verticalJump) {
+        this.verticalJump = verticalJump;
     }
 
     @Override
