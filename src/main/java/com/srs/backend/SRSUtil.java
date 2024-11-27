@@ -49,7 +49,7 @@ public class SRSUtil {
         String tangiblesTitle = "Tangibles";
         String highLight = "HighLight:" + user.highLight;
         String weight = "Weight:" + String.valueOf(user.weight);
-        String height = "Forty:" + String.valueOf(user.height);
+        String height = "Height:" + String.valueOf(user.height);
 
         String speed = "Speed:" + String.valueOf(user.speed);
         String squat = "Squat:" + String.valueOf(user.squat);
